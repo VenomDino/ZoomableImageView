@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.library")
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -8,19 +9,14 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "dino.imageview.zoomableimageview"
         minSdk = 24
-        //noinspection OldTargetApi
-        targetSdk = 34
-        versionCode = 3
-        versionName = "1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
